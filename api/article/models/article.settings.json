@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "name": "article"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "echo": {
+      "model": "echo",
+      "via": "articles"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "message",
+        "cover_story",
+        "reminiscence",
+        "alumni_success_story",
+        "alumni_in_news",
+        "alumni_event",
+        "letters_to_BITS",
+        "article"
+      ],
+      "required": true
+    }
+  }
+}

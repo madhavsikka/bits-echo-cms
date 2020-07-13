@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "echoes",
+  "info": {
+    "name": "echo"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "volume": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "issue": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "articles": {
+      "via": "echo",
+      "collection": "article"
+    }
+  }
+}
